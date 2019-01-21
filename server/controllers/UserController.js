@@ -11,15 +11,7 @@ class User {
             res.status(200).json({
                 data : result
             })
-            // console.log(result)
         })
-        // ModelUser.find()
-        //  .then((data)=>{
-        //     //  res.status(200).json({
-        //     //     result : data
-        //     //  })
-        //     console.log(data)
-        //  })
     }
 }
 
