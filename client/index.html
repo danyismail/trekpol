@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in users" :key="index">
+                {{item.name}}
+            </li>
+        </ul>       
+    </div>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app  = new Vue({
+        el : "#app",
+        mounted() {
+            axios.get('http:localhost:1234/users')
+                 .then(data=>{
+                    this.users = data.data.data
+                 })
+                 .catch(err=>{
+                     this.error = '!'
+                 })
+        },
+        data : {
+            users : null,
+            message : ''
+        },
+        methods: {
+           
+        },
+    })
+</script>
+</html>
